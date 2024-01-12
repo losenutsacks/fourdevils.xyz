@@ -5,10 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Socials!</title>
-    <meta name="title" content="swx.gov">
-    <meta name="description" content="Connect with me on Discord: @swx.gov">
-    <meta property="og:image"
-        content="https://media.discordapp.net/attachments/1193017849627803740/1194491159423225966/noFilter-1.png?ex=65b08b94&is=659e1694&hm=008d65efee20efb18f341e9d9c3eb24796c7af8ddc5b1f2a87bbefd0bf918836&=&format=webp&quality=lossless&width=89&height=89">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
     <style>
@@ -23,27 +19,11 @@
             padding-top: 50px;
             margin: 0;
             overflow: hidden;
-            position: relative;
         }
 
         header {
             margin-bottom: 30px;
             animation: fadeInDown 1s ease-in-out;
-        }
-
-        /* Profile Picture Styles */
-        #profile-pic {
-            border-radius: 50%;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-        }
-
-        /* Title Styles */
-        h1 {
-            margin-bottom: 20px;
-            font-weight: bold;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            opacity: 0;
         }
 
         /* Social Links Styles */
@@ -52,7 +32,6 @@
             justify-content: center;
             align-items: center;
             margin: 20px 0;
-            opacity: 0;
         }
 
         .social-button {
@@ -97,17 +76,6 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
         }
 
-        /* ASCII Animation Styles */
-        .ascii-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 9999; /* Adjusted z-index for better visibility */
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
         /* Gradient Animation Styles */
         @keyframes gradientAnimation {
             0% {
@@ -130,72 +98,10 @@
             }
         }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Linear Interpolation for Title and Social Buttons
-            linearInterpolation('Welcome to my social page?!?!', 0, 50, 'h1');
-            linearInterpolation('.social-buttons', 0, 50, '.social-buttons');
-
-            // ASCII Animation
-            const asciiContainer = document.querySelector('.ascii-container');
-            document.addEventListener('mousemove', handleMouseMove);
-
-            function handleMouseMove(event) {
-                const mouseX = event.clientX / window.innerWidth - 0.5;
-                const mouseY = event.clientY / window.innerHeight - 0.5;
-
-                const asciiCharacters = '!@#$%^&*()-_=+[]{}|;:,.<>?/`~ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-                const asciiCode = asciiCharacters.charCodeAt(Math.floor(Math.abs(mouseX + mouseY) * asciiCharacters.length));
-                const asciiChar = String.fromCharCode(asciiCode);
-
-                asciiContainer.innerHTML = asciiChar;
-                moveAsciiContainer(event.clientX, event.clientY);
-            }
-
-            function moveAsciiContainer(x, y) {
-                asciiContainer.style.left = x + 'px';
-                asciiContainer.style.top = y + 'px';
-            }
-
-            function linearInterpolation(text, startIndex, steps, elementSelector) {
-                const element = document.querySelector(elementSelector);
-                const originalText = element.innerHTML;
-
-                for (let i = 0; i <= steps; i++) {
-                    const alpha = i / steps;
-                    const interpolatedText = ''.concat(...text.split('').map((c, index) =>
-                        String.fromCharCode(Math.floor(originalText.charCodeAt(index + startIndex) + alpha * (c.charCodeAt(0) - originalText.charCodeAt(index + startIndex))))
-                    ));
-                    element.innerHTML = originalText.substring(0, startIndex) + interpolatedText + originalText.substring(startIndex + interpolatedText.length);
-                    await sleep(20); // Adjust the sleep time to control the speed of the transition
-                }
-            }
-
-            function sleep(ms) {
-                return new Promise(resolve => setTimeout(resolve, ms));
-            }
-
-            // Show ASCII characters on mouse hover
-            document.body.addEventListener('mouseover', function () {
-                asciiContainer.style.opacity = 1;
-            });
-
-            // Hide ASCII characters on mouse leave
-            document.body.addEventListener('mouseout', function () {
-                asciiContainer.style.opacity = 0;
-            });
-        });
-    </script>
 </head>
 
 <body>
-    <div class="ascii-container"></div>
-
     <header>
-        <img id="profile-pic"
-            src="https://cdn.discordapp.com/attachments/1169213379429281835/1194667842516287639/27c37d14a9ad90ec085b9f099c49c319.jpg"
-            alt="Profile Picture" width="200" height="200">
         <h1>Welcome to my social page?!?!</h1>
     </header>
 
@@ -212,17 +118,6 @@
         <a class="social-button" href="https://discord.com/users/512067578974437378" target="_blank"
             rel="noopener noreferrer"><i class="fab fa-discord" aria-hidden="true"></i> Discord Profile</a>
     </div>
-
-    <section>
-        <!-- Spotify Embed -->
-        <div class="spotify-container">
-            <iframe class="spotify-embed"
-                src="https://open.spotify.com/embed/track/7vOmSP2647oNUGGEhWd1cr?utm_source=generator&theme=0"
-                frameborder="0" allowfullscreen=""
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"></iframe>
-        </div>
-    </section>
 </body>
 
 </html>
