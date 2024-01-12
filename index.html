@@ -18,6 +18,16 @@
             padding-top: 50px;
             position: relative;
             background: linear-gradient(45deg, #1c1c1c, #292929);
+            animation: backgroundAnimation 15s infinite alternate;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 100% 100%;
+            }
         }
 
         header {
@@ -37,11 +47,11 @@
         .social-button {
             margin: 10px;
             padding: 12px 24px;
-            background-color: #3498db;
+            background: linear-gradient(45deg, #3498db, #9b59b6, #e74c3c);
             color: #ffffff;
             text-decoration: none;
             border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+            transition: background 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
             font-size: 16px;
             font-weight: bold;
@@ -52,7 +62,7 @@
             overflow: hidden;
             display: flex;
             align-items: center;
-            width: 200px; /* Adjust the width as needed */
+            width: 200px;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
@@ -75,7 +85,7 @@
         }
 
         .social-button:hover {
-            background-color: #297fb8;
+            background: linear-gradient(45deg, #297fb8, #8e44ad, #c0392b);
             color: #ffffff;
             transform: scale(1.1);
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
@@ -94,13 +104,13 @@
 
         .watermark {
             position: absolute;
-            font-size: 60px; /* Adjust the font size as needed */
-            color: rgba(0, 0, 0, 0.3); /* Watermark text color with transparency */
-            transform: rotate(-45deg); /* Rotate the text */
-            opacity: 0.2; /* Adjust the opacity as needed */
+            font-size: 60px;
+            color: rgba(0, 0, 0, 0.3);
+            transform: rotate(-45deg);
+            opacity: 0.2;
             z-index: -2;
             pointer-events: none;
-            animation: float 5s infinite alternate; /* Floating animation */
+            animation: float 5s infinite alternate;
         }
 
         /* Gradient Animation Styles */
