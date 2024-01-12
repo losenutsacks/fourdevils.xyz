@@ -70,7 +70,6 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
-            opacity: 0;
         }
 
         .social-button i {
@@ -138,7 +137,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Linear Interpolation for Title and Social Buttons
             linearInterpolation('Welcome to my social page?!?!', 0, 50, 'h1');
-            linearInterpolation('.social-button', 0, 50, '.social-buttons');
+            linearInterpolation('.social-buttons', 0, 50, '.social-buttons');
 
             function linearInterpolation(text, startIndex, steps, elementSelector) {
                 const element = document.querySelector(elementSelector);
