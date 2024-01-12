@@ -52,6 +52,9 @@
             overflow: hidden;
             display: flex;
             align-items: center;
+            width: 200px; /* Adjust the width as needed */
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         .social-button i {
@@ -91,10 +94,13 @@
 
         .watermark {
             position: absolute;
-            font-size: 40px; /* Adjust the font size as needed */
-            color: black; /* Watermark text color */
+            font-size: 60px; /* Adjust the font size as needed */
+            color: rgba(0, 0, 0, 0.3); /* Watermark text color with transparency */
             transform: rotate(-45deg); /* Rotate the text */
-            opacity: 0.3; /* Adjust the opacity as needed */
+            opacity: 0.2; /* Adjust the opacity as needed */
+            z-index: -2;
+            pointer-events: none;
+            animation: float 5s infinite alternate; /* Floating animation */
         }
 
         /* Gradient Animation Styles */
@@ -106,6 +112,15 @@
             100% {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-20px);
             }
         }
     </style>
