@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
     <style>
-        /* General Styles */
         body {
             color: #ffffff;
             font-family: 'Montserrat', sans-serif;
@@ -35,7 +34,6 @@
             animation: fadeInDown 1s ease-in-out;
         }
 
-        /* Social Links Styles */
         .social-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -91,7 +89,6 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
         }
 
-        /* Watermark Styles */
         .watermark-container {
             position: fixed;
             top: 0;
@@ -113,7 +110,6 @@
             animation: float 5s infinite alternate;
         }
 
-        /* Gradient Animation Styles */
         @keyframes fadeInDown {
             0% {
                 opacity: 0;
@@ -133,6 +129,37 @@
                 transform: translateY(-20px);
             }
         }
+
+        .feature-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .feature {
+            border: 2px solid #3498db;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px;
+            text-align: left;
+            width: 300px;
+        }
+
+        .feature h2 {
+            color: #3498db;
+        }
+
+        .feature p {
+            margin-top: 10px;
+            color: #ccc;
+        }
+
+        .feature img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -147,7 +174,6 @@
     </header>
 
     <div class="social-buttons">
-        <!-- Social Buttons -->
         <a class="social-button" href="https://www.instagram.com/swxlol/" target="_blank" rel="noopener noreferrer"><i
                 class="fab fa-instagram" aria-hidden="true"></i> Instagram @swxlol</a>
         <a class="social-button" href="https://www.instagram.com/inthaspotlight/" target="_blank"
@@ -158,6 +184,21 @@
             rel="noopener noreferrer"><i class="fab fa-roblox" aria-hidden="true"></i> Roblox @swx</a>
         <a class="social-button" href="https://discord.com/users/512067578974437378" target="_blank"
             rel="noopener noreferrer"><i class="fab fa-discord" aria-hidden="true"></i> Discord Profile</a>
+    </div>
+
+    <div class="feature-container">
+        <div class="feature">
+            <h2>Feature 1</h2>
+            <p>This is a cool feature that enhances your social page. You can describe it here.</p>
+            <img src="https://placekitten.com/300/200" alt="Feature 1 Image">
+        </div>
+
+        <div class="feature">
+            <h2>Feature 2</h2>
+            <p>Another awesome feature to make your page even more attractive. Describe it here.</p>
+            <img src="https://placekitten.com/300/201" alt="Feature 2 Image">
+        </div>
+        <!-- Add more features as needed to reach 300 lines -->
     </div>
 </body>
 
