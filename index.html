@@ -23,6 +23,7 @@
             padding-top: 50px;
             margin: 0;
             overflow: hidden;
+            position: relative;
         }
 
         header {
@@ -96,6 +97,17 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
         }
 
+        /* ASCII Animation Styles */
+        .ascii-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
         /* Gradient Animation Styles */
         @keyframes gradientAnimation {
             0% {
@@ -117,27 +129,34 @@
                 transform: translateY(0);
             }
         }
-
-        /* Spotify Embed Styles */
-        .spotify-container {
-            width: 70%;
-            margin: 0 auto;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-            margin-bottom: 30px;
-        }
-
-        .spotify-embed {
-            width: 100%;
-            height: 300px; /* Adjust the height as needed */
-        }
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Linear Interpolation for Title and Social Buttons
             linearInterpolation('Welcome to my social page?!?!', 0, 50, 'h1');
             linearInterpolation('.social-buttons', 0, 50, '.social-buttons');
+
+            // ASCII Animation
+            const asciiContainer = document.querySelector('.ascii-container');
+            document.addEventListener('mousemove', handleMouseMove);
+
+            function handleMouseMove(event) {
+                const mouseX = event.clientX / window.innerWidth - 0.5;
+                const mouseY = event.clientY / window.innerHeight - 0.5;
+
+                const asciiCharacters = '!@#$%^&*()-_=+[]{}|;:,.<>?/`~ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+                const asciiCode = asciiCharacters.charCodeAt(Math.floor(Math.abs(mouseX + mouseY) * asciiCharacters.length));
+                const asciiChar = String.fromCharCode(asciiCode);
+
+                asciiContainer.innerHTML = asciiChar;
+                moveAsciiContainer(event.clientX, event.clientY);
+            }
+
+            function moveAsciiContainer(x, y) {
+                asciiContainer.style.left = x + 'px';
+                asciiContainer.style.top = y + 'px';
+            }
 
             function linearInterpolation(text, startIndex, steps, elementSelector) {
                 const element = document.querySelector(elementSelector);
@@ -156,11 +175,23 @@
             function sleep(ms) {
                 return new Promise(resolve => setTimeout(resolve, ms));
             }
+
+            // Show ASCII characters on mouse hover
+            document.body.addEventListener('mouseover', function () {
+                asciiContainer.style.opacity = 1;
+            });
+
+            // Hide ASCII characters on mouse leave
+            document.body.addEventListener('mouseout', function () {
+                asciiContainer.style.opacity = 0;
+            });
         });
     </script>
 </head>
 
 <body>
+    <div class="ascii-container"></div>
+
     <header>
         <img id="profile-pic"
             src="https://cdn.discordapp.com/attachments/1169213379429281835/1194667842516287639/27c37d14a9ad90ec085b9f099c49c319.jpg"
